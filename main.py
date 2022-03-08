@@ -1,6 +1,6 @@
 from distutils.log import debug
 import string
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from transformers import (
     AutoTokenizer,
     pipeline
@@ -18,11 +18,11 @@ I would really love to try the circle and this triangle, and even the shark, but
 
 @app.route('/')
 def home():
-    return getSummary(article)
+    return render_template("index.html", summary=getSummary(article))
 
 @app.route("/<article>")
 def summary_page(article):
-    return getSummary(article);
+    return getSummary(article)
 
 def getSummary(article:string) -> string:
     summary = summarizer(article, max_length=24, min_length=24, do_sample=False);
