@@ -18,7 +18,7 @@ def home():
     if request.method == 'POST':
         input = request.form['name']
         return render_template("index.html", summary=getSummary(input))
-    return render_template("index.html", summary=getSummary(article))
+    return render_template("index.html", summary="")
 
 @app.route("/<article>")
 def summary_page(article):
