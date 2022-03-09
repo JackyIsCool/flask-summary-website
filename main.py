@@ -25,7 +25,7 @@ def summary_page(article):
     return getSummary(article)
 
 def getSummary(article:string) -> string:
-    summary = summarizer(article, max_length=24, min_length=24, do_sample=False);
+    summary = summarizer(article, max_length=48, min_length=24, do_sample=False);
     return summary[0]["summary_text"]
     
 if (__name__ == "__main__"):
