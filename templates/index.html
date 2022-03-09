@@ -12,6 +12,7 @@
         }
         h1 {
             text-align: center;
+            text-decoration: underline;
         }
         button {
             width: 65px;
@@ -63,6 +64,15 @@
             padding: 30px 30px;
             background-color: aliceblue;
         }
+        #credit {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            font-size: xx-small;
+            margin: 5px;
+            opacity: .6;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -74,5 +84,9 @@
         </button> 
     </form>
     <p>{{summary}}</p>
+    <pre id="credit">
+        Credit: 
+        [Model](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
+        [Library/Framework]Flask, transformers</pre>
 </body>
 </html>
