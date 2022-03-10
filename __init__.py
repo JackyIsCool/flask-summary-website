@@ -3,10 +3,15 @@ import string
 from flask import Flask, render_template, request
 from transformers import (
     AutoTokenizer,
-    pipeline
+    pipeline,
+    AutoModelForSeq2SeqLM
+
 )
 app = Flask(__name__)
-summarizer = pipeline("summarization")
+
+tokenizer = AutoTokenizer.from_pretrained("cnicu/t5-small-booksum")
+model = AutoModelForSeq2SeqLM.from_pretrained("cnicu/t5-small-booksum")
+summarizer = pipeline("summarization", model=model, tokenizer=tokenizer);
 article = """
 Happy womens day to all the females in this comment section!
 
@@ -29,4 +34,4 @@ def getSummary(article:string) -> string:
     return summary[0]["summary_text"]
     
 if (__name__ == "__main__"):
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)

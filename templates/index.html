@@ -73,6 +73,15 @@
             opacity: .6;
             text-align: right;
         }
+        #github {
+            position: fixed;
+            margin: 5px;
+            bottom: 0;
+            left: 0;
+        }
+        #github img {
+            height: 32px;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +95,8 @@
     <p>{{summary}}</p>
     <pre id="credit">
         Credit: 
-        [Model](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
+        [Model](https://huggingface.co/cnicu/t5-small-booksum)
         [Library/Framework]Flask, transformers</pre>
+    <a id="github" href="https://github.com/JackyChanzijian/flask-summary-website"><img src="/static/github.png"/></a>
 </body>
 </html>
